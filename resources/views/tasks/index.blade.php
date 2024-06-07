@@ -13,6 +13,7 @@
                     <th>id</th>
                     <th>タスク</th>
                     <th>ステータス</th>
+                    <th>ユーザー</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,10 +22,12 @@
                     <td><a class="link link-hover text-info" href="{{ route('tasks.show', $task->id) }}">{{ $task->id }}</td>
                     <td>{{ $task->content }}</td>
                     <td>{{ $task->status }}</td>
+                    <td>{{ $task->user->name }}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        {{ $tasks->links() }}
     @endif
 
     <a class="btn btn-primary" href="{{ route('tasks.create') }}">新規タスクの登録</a>
